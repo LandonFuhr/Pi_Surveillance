@@ -8,13 +8,12 @@ def main():
     targetFramerate = 20
 
     sleepLength = 1/targetFramerate
-    vs = PiVideoStream().start()
+    vs = PiVideoStream(resolution=(1024,768)).start()
     time.sleep(2.0)
     fps = FPS().start()
     # loop over some frames...this time using the threaded stream
     while True:
         frame = vs.read()
-        frame = imutils.resize(frame, width=1800)
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
         fps.update()
