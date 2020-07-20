@@ -1,8 +1,6 @@
 # import the necessary packages
 from imutils.video.pivideostream import PiVideoStream
 from imutils.video import FPS
-from picamera.array import PiRGBArray
-from picamera import PiCamera
 import argparse
 import imutils
 import time
