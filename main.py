@@ -14,7 +14,7 @@ def main():
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
         fps.update()
-        time.sleep(2)
+        time.sleep(0.05)
     # stop the timer and display FPS information
     fps.stop()
     print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
