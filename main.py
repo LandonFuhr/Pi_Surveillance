@@ -5,6 +5,9 @@ import time
 import cv2
 
 def main():
+    targetFramerate = 20
+
+    sleepLength = 1/targetFramerate
     vs = PiVideoStream().start()
     time.sleep(2.0)
     fps = FPS().start()
@@ -14,7 +17,9 @@ def main():
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
         fps.update()
-        time.sleep(0.05)
+        if key == ord('q'):
+            break
+        time.sleep(sleepLength)
     # stop the timer and display FPS information
     fps.stop()
     print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
