@@ -8,7 +8,7 @@ def main():
     targetFramerate = 20
 
     sleepLength = 1/targetFramerate
-    vs = PiVideoStream(resolution=(640,480)).start()
+    vs = PiVideoStream(resolution=(640,480), vflip=True).start()
     time.sleep(2.0)
     fps = FPS().start()
     # loop over some frames...this time using the threaded stream
