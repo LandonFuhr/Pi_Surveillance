@@ -6,7 +6,7 @@ from picamera import PiCamera
 import argparse
 import imutils
 import time
-import cv2
+from cv2 import cv2
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
