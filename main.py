@@ -16,8 +16,6 @@ def main():
     try:
         while capture:
             frame = vs.read()
-            cv2.namedWindow("Frame", cv2.WND_PROP_FULLSCREEN)
-            cv2.setWindowProperty("Frame",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
             cv2.imshow("Frame", frame)
             key = cv2.waitKey(1) & 0xFF
             fps.update()
