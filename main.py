@@ -12,16 +12,20 @@ def main():
     time.sleep(2.0)
     fps = FPS().start()
     # loop over some frames...this time using the threaded stream
+    capture = True
     try:
-        while True:
+        while capture:
             frame = vs.read()
+            cv2.namedWindow("Frame", cv2.WND_PROP_FULLSCREEN)
+            cv2.setWindowProperty("Frame",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
             cv2.imshow("Frame", frame)
             key = cv2.waitKey(1) & 0xFF
             fps.update()
             if key == ord('q'):
-                break
+                capture = False
             # time.sleep(sleepLength)
-        # stop the timer and display FPS information
+
+        # on break
         fps.stop()
         print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
         print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
